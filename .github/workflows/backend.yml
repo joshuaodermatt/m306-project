@@ -13,7 +13,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -21,17 +21,11 @@ jobs:
       - name: Step 1 - Checkout of prod branch
         uses: actions/checkout@v2
 
-
-      - name: Step 2 - Setup JDK
-      - uses: action/setup-java@v1
-        with:
-          java-version: 11
-
-      - name: Step 3 - Build backend
+      - name: Step 2 - Build backend
         run: mvn -B package --file backend/pom.xml
       
-      - name: Step 4 - Build docker image
+      - name: Step 3 - Build docker image
         run: docker buid -t backend backend/Dockerimage
       
-      - name: Step 5 - Run docker container
+      - name: Step 4 - Run docker container
         run: docker run -p 8080:8080 backend
