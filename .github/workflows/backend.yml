@@ -25,7 +25,7 @@ jobs:
         run: mvn -B package --file backend/pom.xml
       
       - name: Step 3 - Build docker image
-        run: docker buid -t backend backend/Dockerimage
+        run: docker buid -t backend backend/.
       
       - name: Step 4 - Run docker container
         run: docker run -p 8080:8080 backend
