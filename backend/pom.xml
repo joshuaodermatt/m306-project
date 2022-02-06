@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.up-or-down</groupId>
 	<artifactId>backend</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>executable</version>
 	<name>backend</name>
 	<description>backend for up or down web app</description>
 	<properties>
