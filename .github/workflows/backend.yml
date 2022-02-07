@@ -28,5 +28,5 @@ jobs:
         run: docker build -t backend backend/.
       
       - name: Step 4 - Run docker container
-        run: docker run -p 8080:8080 backend
+        run: docker run -d -p 8080:8080 backend
         
