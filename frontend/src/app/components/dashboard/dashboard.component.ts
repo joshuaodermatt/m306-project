@@ -32,7 +32,9 @@ export class DashboardComponent implements OnInit {
   }
 
   getSiteInformation(){
-    this.toast.error('Error.  Invalid URL');
+    if(!this.validateURL(this.url)){
+      this.toast.error('Error.  Invalid URL');
+    }
     this.requestService.getInfo(this.url);
 
     this.logo = this.requestService.informations.logo;
@@ -51,12 +53,15 @@ export class DashboardComponent implements OnInit {
       this.name  != '' &&
       this.ping != ''
     ){
-      console.log("true")
       return true;
     }else{
-      console.log("false")
       return false;
     }
+  }
+
+  validateURL(url:string){
+    let regex = new RegExp(/^(http: \/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/);
+    return regex.test(url);
   }
 
 }
