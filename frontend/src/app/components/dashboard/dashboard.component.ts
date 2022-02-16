@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faInfo } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { WebsitesService } from 'src/app/services/websites.service';
 import { RequestService } from 'src/app/services/request.service';
 import { HotToastService } from '@ngneat/hot-toast';
@@ -16,6 +18,8 @@ export class DashboardComponent implements OnInit {
 
   faSpinner = faSpinner;
   faSearch = faSearch;
+  faInfo = faInfo;
+  faPlus = faPlus;
 
   url: string= '';
 
@@ -57,6 +61,10 @@ export class DashboardComponent implements OnInit {
     }else{
       return false;
     }
+  }
+
+  addSite(){
+    this.websitesService.websites.push()
   }
 
   validateURL(url:string){

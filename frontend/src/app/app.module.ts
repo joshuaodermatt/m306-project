@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AgmCoreModule } from '@agm/core';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { DetailsComponent } from './components/details/details.component';
 
 
 @NgModule({
@@ -19,7 +23,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
     AppComponent,
     HomeComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,9 @@ import { HotToastModule } from '@ngneat/hot-toast';
         position: 'top-right',
       }
     ),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD9CrtGofSfxZoP-npesBdqHnpZGTNLzzc'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
