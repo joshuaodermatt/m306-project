@@ -4,6 +4,10 @@ EXPOSE 10001
 
 COPY . .
 
+RUN mvn clean
+
+RUN mvn install
+
 RUN mvn package
 
-ENTRYPOINT ["java", "-jar", "target/backend-executable.jar -Dspring-boot.run.arguments=--spring.profiles.active=prod"]
+ENTRYPOINT ["java", "-jar", "target/backend-0.0.1-SNAPSHOT.jar", "--spring.profiles.active=prod"]
