@@ -3,6 +3,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { WebsitesService } from 'src/app/services/websites.service';
 import { RequestService } from 'src/app/services/request.service';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +12,7 @@ import { RequestService } from 'src/app/services/request.service';
 })
 export class DashboardComponent implements OnInit {
   
-  constructor(private websitesService: WebsitesService, private requestService: RequestService) { }
+  constructor(private websitesService: WebsitesService, private requestService: RequestService, private toast: HotToastService) { }
 
   faSpinner = faSpinner;
   faSearch = faSearch;
@@ -31,6 +32,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getSiteInformation(){
+    this.toast.error('Error.  Invalid URL');
     this.requestService.getInfo(this.url);
 
     this.logo = this.requestService.informations.logo;
