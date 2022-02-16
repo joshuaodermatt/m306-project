@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 
 @NgModule({
@@ -27,6 +28,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     FormsModule,
     HttpClientModule,
+    HotToastModule.forRoot(
+      {
+        position: 'top-right',
+      }
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent]
