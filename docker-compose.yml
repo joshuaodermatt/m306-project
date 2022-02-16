@@ -1,0 +1,6 @@
+services:
+  frontend:
+    image: ./frontend/.
+    ports:
+      - 10000:10000
+  backend:
